@@ -1,6 +1,7 @@
 // Icon Clicking / Tapping for "Light Mode".
 let clicks = 0
-let requirement = 50
+let requirement = 10
+let hasBG = false
 
 // Element stuff.
 let tao = document.getElementById('TaoMc')
@@ -17,9 +18,12 @@ function Click(){
 }
 
 function ClickCheck(){
-  if(clicks == requirement){
+  if(clicks == requirement && !hasBG){
     console.log('User has unlocked Light mode.')
+    hasBG = true
     select.innerHTML += '<option>Light Mode</option>'
+  } else if(hasBG){
+    console.log('User already has a background.')
   }
   Click()
 }
